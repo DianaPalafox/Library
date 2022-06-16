@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+#form {
+    display: none; 
+    margin: 0 auto;
+    width: 350px;
+    height: 300px;
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+.container {
+    margin-top: 70px;
+}
+
+.title, .author, .pages{
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+}
+
+input[type='text'] {
+    width: 300px;
+    background-color: #FFFFFF;
+    border: 1px solid #D6D9DC;
+    border-radius: 3px;
+    padding: 5px;
+    font-size: 15px;
+    margin-top: 5px;
+    
+}
+
+.radio {
+    margin-top: 10px;
+}
