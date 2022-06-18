@@ -3,10 +3,23 @@
     padding: 0;
 }
 
+body {
+    background-color: #ccfbf1;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+h1 {
+    padding: 30px;
+    text-align: center;
+}
+
 
 h2 {
     font-size: 20px;
     margin-bottom: 30px;
+    text-align: center;
+    font-size: 30px;
+    color: #ccfbf1;
 }
 
 #form {
@@ -14,13 +27,15 @@ h2 {
     margin: 0 auto;
     width: 350px;
     height: 300px;
-    padding: 1em;
-    border: 1px solid #CCC;
+    padding: 2em;
+    border-style: none;
     border-radius: 1em;
+    background-color: #06b6d4;
+    box-shadow: 5px 5px #0e7490;
 }
 
 .container {
-    margin-top: 70px;
+    margin-top: 50px;
 }
 
 .title, .author, .pages{
@@ -44,4 +59,51 @@ input[type='text'] {
     margin-top: 10px;
 }
 
+.add-book {
+    padding: 15px;
+    width: 150px;
+    border-radius: 10px;
+    background-color: #06b6d4;
+    border-style: none;
+    color: #164e63;
+    font-weight: bold;
+    font-size: 20px;
+    box-shadow: 3px 3px #0e7490;
+}
+
+.add-book-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.add-book:hover {
+    background-color: #0e7490;
+    color: #ccfbf1;
+}
+
+.form-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.submit, .cancel {
+    width: 80px;
+    background-color: #ccfbf1;
+    border-radius: 5px;
+    border-style: none;
+    padding: 3px;
+    color: #164e63;
+}
+
+.submit:hover, .cancel:hover {
+    background-color: #0e7490;
+    color: #ccfbf1;
+}
+
+label {
+    color: #164e63;
+    font-weight: bold;
+}
 

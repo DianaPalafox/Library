@@ -10,30 +10,34 @@
 </head>
 <body>
     <h1>Virtual Library</h1>
-    <button class="add-book">New Book</button>
+    <div class="add-book-button">
+        <button class="add-book">New Book</button>
+    </div>
     <div class="booksContainer"></div>
     <div class="container">
         <form id="form">
             <div class="form">
                 <h2>Add New Book</h2>
                 <div class="title">
-                    <label for="title">TITLE</label>
-                    <input type="text" name="title" id="title">
+                    <label for="title">TITLE:</label>
+                    <input type="text" name="title" id="title" required>
                 </div>
                 <div class="author">
-                    <label for="author">AUTHOR</label>
-                    <input type="text" name="author" id="author">
+                    <label for="author">AUTHOR:</label>
+                    <input type="text" name="author" id="author" required>
                 </div>
                 <div class="pages">
-                    <label for="pages">NUMBER OF PAGES</label>
+                    <label for="pages">NUMBER OF PAGES:</label>
                     <input type="text" name="pages" id="pages">
                 </div>
                 <div class="radio">
                     <label for="read">Have you read the book?</label>
-                    <input type="radio" name="read" id="read">
+                    <input type="radio" name="read" id="read" required>
                 </div>
-                <button class="submit" type="button">Subtmit</button>
-                <button  type="button">Cancel</button>
+                <div class="form-buttons">
+                    <button class="submit" type="button">Submit</button>
+                    <button class="cancel" type="button">Cancel</button>
+                </div>
             </div>
         </form>
     </div> 
