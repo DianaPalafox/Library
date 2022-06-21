@@ -16,15 +16,16 @@
     <div class="booksContainer"></div>
     <div class="container">
         <form id="form">
+            <span id="close">&times;</span>
             <div class="form">
-                <h2>Add New Book</h2>
+                <h2>Add New Book</h2>    
                 <div class="title">
                     <label for="title">TITLE:</label>
-                    <input type="text" name="title" id="title" required>
+                    <input type="text" name="title" id="title" required/>
                 </div>
                 <div class="author">
                     <label for="author">AUTHOR:</label>
-                    <input type="text" name="author" id="author" required>
+                    <input type="text" name="author" id="author" required/>
                 </div>
                 <div class="pages">
                     <label for="pages">NUMBER OF PAGES:</label>
@@ -32,11 +33,11 @@
                 </div>
                 <div class="radio">
                     <label for="read">Have you read the book?</label>
-                    <input type="radio" name="read" id="read" required>
+                    <input type="radio" name="read" id="read" value="Yes" required><label for="read">Yes</label>
+                    <input type="radio" name="read" id="read" value="No" required><label for="read">No</label>
                 </div>
                 <div class="form-buttons">
                     <button class="submit" type="button">Submit</button>
-                    <button class="cancel" type="button">Cancel</button>
                 </div>
             </div>
         </form>

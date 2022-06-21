@@ -1,7 +1,8 @@
 let myLibrary = []; 
 let buttonAddBook = document.querySelector('.add-book');
-let buttonSubmit = document.querySelector('.submit');
-let booksContainer = document.querySelector('.booksContainer'); 
+const buttonSubmit = document.querySelector('.submit');
+const booksContainer = document.querySelector('.booksContainer'); 
+const closeSpan = document.querySelector('#close');
 
 function Book(title, author, pages, read) {
     this.title = title
@@ -12,33 +13,47 @@ function Book(title, author, pages, read) {
 
 function addBookToLibrary() {
     buttonSubmit.addEventListener('click', () => {
-        let title = document.getElementById('title').value; 
-        let author = document.getElementById('author').value; 
-        let pages = document.getElementById('pages').value; 
-        let read = document.getElementById('read').value; 
-        let newBook = new Book(title, author, pages, read); 
-        myLibrary.push(newBook); 
         document.getElementById('form').style.display = 'none';
+        getInfoBook();
         displayBooks();
     })
 }
 
 addBookToLibrary(); 
 
-function showForm() {
+function getInfoBook() {
+    let title = document.getElementById('title').value; 
+        if (title === "") {
+           alert('Title must be filled out');
+        }
+        let author = document.getElementById('author').value; 
+        if (author === "") {
+            alert('Author must be filled out'); 
+        }
+        let pages = document.getElementById('pages').value; 
+        let read = document.querySelector('input[name="read"]:checked').value;
+        let newBook = new Book(title, author, pages, read); 
+        myLibrary.push(newBook); 
+}
+
+const showForm = function() {
    buttonAddBook.addEventListener('click', () => {
         document.getElementById('form').style.display = 'block'; 
    })
 }
 showForm(); 
 
+closeSpan.onclick = function() {
+    document.getElementById('form').style.display = 'none';
+}
 
 function displayBooks() {
-    for(let i=0; i<myLibrary.length; i++) {
+    myLibrary.forEach(function(book, i) {
         //Create the main div and the div that will store the information
     
         const infoContainer = document.createElement('div'); 
         infoContainer.classList.add('info-container');
+        infoContainer.setAttribute("data-index", `${i}`); 
 
         //Create the divs that will contain the author name, title and pages of the book
         const bookTitle = document.createElement('div');
@@ -49,21 +64,28 @@ function displayBooks() {
 
         const bookPages = document.createElement('div'); 
         bookPages.classList.add('book-info'); 
+
+        const bookRead = document.createElement('div');
+        bookRead.classList.add('book-info'); 
         
         //Create the spans for the headings
         const titleHeading = document.createElement('div');
         titleHeading.classList.add('heading-style');
 
         const authorHeading = document.createElement('div');
-        authorHeading.classList.add('heading-author');
+        authorHeading.classList.add('heading-style');
 
         const pagesHeading = document.createElement('div');
-        pagesHeading.classList.add('heading-pages');
+        pagesHeading.classList.add('heading-style');
+
+        const readHeading = document.createElement('div');
+        readHeading.classList.add('heading-style'); 
 
         //Add the headings 
-        titleHeading.textContent = 'Title:';
-        authorHeading.textContent = 'Author:';
-        pagesHeading.textContent = 'Number of pages:'; 
+        titleHeading.textContent = 'TITLE:';
+        authorHeading.textContent = 'AUTHOR:';
+        pagesHeading.textContent = 'NUMBER OF PAGES:'; 
+        readHeading.textContent = 'Have you read this book?'
 
         const titleInput = document.createElement('div'); 
         titleInput.classList.add('input-style');
@@ -74,27 +96,33 @@ function displayBooks() {
         const pagesInput = document.createElement('div');
         pagesInput.classList.add('input-style'); 
 
-        titleInput.textContent = document.getElementById('title').value;
-        authorInput.textContent = document.getElementById('author').value; 
-        pagesInput.textContent = document.getElementById('pages').value;
+        const readInput = document.createElement('div');
+        readInput.classList.add('input-style'); 
 
+        titleInput.textContent = `${book.title}`;
+        authorInput.textContent = `${book.author}`;
+        pagesInput.textContent = `${book.pages}`;
+        readInput.textContent = `${book.read}`;
+        
         infoContainer.appendChild(bookTitle);
         infoContainer.appendChild(bookAuthor);
         infoContainer.appendChild(bookPages); 
+        infoContainer.appendChild(bookRead); 
 
         bookTitle.appendChild(titleHeading);
         bookAuthor.appendChild(authorHeading);
         bookPages.appendChild(pagesHeading);
+        bookRead.appendChild(readHeading); 
 
         bookTitle.appendChild(titleInput);
         bookAuthor.appendChild(authorInput);
         bookPages.appendChild(pagesInput);
+        bookRead.appendChild(readInput);
 
         booksContainer.appendChild(infoContainer); 
-
-    }   
-    
+    }); 
 }
+
 
 
 
