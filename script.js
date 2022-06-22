@@ -15,6 +15,7 @@ function addBookToLibrary() {
     buttonSubmit.addEventListener('click', () => {
         document.getElementById('form').style.display = 'none';
         getInfoBook();
+        deleteBooks(); 
         displayBooks();
     })
 }
@@ -103,11 +104,21 @@ function displayBooks() {
         authorInput.textContent = `${book.author}`;
         pagesInput.textContent = `${book.pages}`;
         readInput.textContent = `${book.read}`;
+
+        //Add delete button
+        const btn = document.createElement('div');
+        btn.classList.add('btn'); 
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList.add('btn-style');
+        deleteBtn.textContent = 'Delete'; 
+        
+        btn.appendChild(deleteBtn);
         
         infoContainer.appendChild(bookTitle);
         infoContainer.appendChild(bookAuthor);
         infoContainer.appendChild(bookPages); 
         infoContainer.appendChild(bookRead); 
+        infoContainer.appendChild(btn);
 
         bookTitle.appendChild(titleHeading);
         bookAuthor.appendChild(authorHeading);
@@ -124,5 +135,11 @@ function displayBooks() {
 }
 
 
-
+function deleteBooks() {
+    if (document.body.contains(document.querySelector('.info-container'))) {
+        while (booksContainer.firstChild) {
+            booksContainer.removeChild(booksContainer.lastChild)
+        }
+    } 
+}
 
