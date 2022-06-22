@@ -111,6 +111,12 @@ function displayBooks() {
         const deleteBtn = document.createElement('button');
         deleteBtn.classList.add('btn-style');
         deleteBtn.textContent = 'Delete'; 
+
+        deleteBtn.addEventListener('click', function() {
+            myLibrary.splice(`${i}`, 1);
+            booksContainer.removeChild(infoContainer); 
+            console.log(myLibrary); 
+        });
         
         btn.appendChild(deleteBtn);
         
@@ -142,4 +148,6 @@ function deleteBooks() {
         }
     } 
 }
+
+
 
