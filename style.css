@@ -183,4 +183,5 @@ label {
     justify-content: flex-end;
     align-items: flex-end;
     padding-right: 5px;
+    gap: 5px; 
 }

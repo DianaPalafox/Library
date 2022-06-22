@@ -115,11 +115,28 @@ function displayBooks() {
         deleteBtn.addEventListener('click', function() {
             myLibrary.splice(`${i}`, 1);
             booksContainer.removeChild(infoContainer); 
-            console.log(myLibrary); 
         });
         
         btn.appendChild(deleteBtn);
-        
+
+       //Add button that changes read status 
+       const readButton = document.createElement('button');
+       readButton.classList.add('btn-style'); 
+       readButton.textContent = 'Update';
+       
+       readButton.addEventListener('click', function() {
+          if (`${book.read}` === 'Yes') {
+            readInput.textContent = 'No'; 
+            book.read = 'No';
+          }
+          else if (`${book.read}` === 'No') {
+            readInput.textContent = 'Yes';
+            book.read = 'Yes';
+          }
+       });
+
+        btn.appendChild(readButton);
+
         infoContainer.appendChild(bookTitle);
         infoContainer.appendChild(bookAuthor);
         infoContainer.appendChild(bookPages); 
@@ -149,5 +166,13 @@ function deleteBooks() {
     } 
 }
 
+function changeReadStatus() {
+    let r = document.querySelector('input[name="read"]:checked');
+    if(r.value === 'Yes') {
+        r.value= 'No';
+    }
+    if (r.value === 'No') {
+        r.value = 'Yes'; 
+    }   
 
-
+}
